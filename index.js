@@ -2,11 +2,21 @@ let myLeads = []
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
-let leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
+
+/// Set up variable to contain the leads parsed into an array
+let leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") );
+
+if(leadsFromLocalStorage){
+    myLeads = leadsFromLocalStorage;
+    renderLeads()
+}
+
+
 
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value)
     inputEl.value = ""
+    /// Creating a localStorage with key called "myLeads" and making values strings
     localStorage.setItem("myLeads", JsON.stringify(myLeads))
     renderLeads()
 })
