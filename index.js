@@ -4,7 +4,7 @@ const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
 
 /// Set up variable to contain the leads parsed into an array
-let leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") );
+const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") );
 
 if(leadsFromLocalStorage){
     myLeads = leadsFromLocalStorage;
