@@ -17,7 +17,7 @@ inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value)
     inputEl.value = ""
     /// Creating a localStorage with key called "myLeads" and making values strings
-    localStorage.setItem("myLeads", JsON.stringify(myLeads))
+    localStorage.setItem("myLeads", JSON.stringify(myLeads))
     renderLeads()
 })
 
