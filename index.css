@@ -13,7 +13,7 @@ input {
     margin-bottom: 4px;
 }
 
-#input-btn {
+button {
     background: #5f9341;
     color: white;
     padding: 10px 20px;
