@@ -9,10 +9,13 @@ const ulEl = document.getElementById("ul-el")
 /// Set up variable to contain the leads parsed into an array
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") );
 
+/// checks to see if leadsFromLocalStorage is not empty
 if(leadsFromLocalStorage){
     myLeads = leadsFromLocalStorage;
     render(myLeads)
 }
+
+let tabs = []
 
 function render(leads) {
     let listItems = ""
@@ -36,9 +39,21 @@ inputBtn.addEventListener("click", function() {
     render(myLeads)
 })
 
+tabBtn.addEventListener("click", function(){
+    /// adding google api to store current tab web address as a lead
+
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        myLeads.push(tabs[0].url)
+        localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+        render(myLeads)
+    })
+
+    
+})
+
 deleteBtn.addEventListener("dblclick", function(){
-    localStorage.clear();
-    myLeads = [];
+    localStorage.clear()
+    myLeads = []
     render(myLeads)
 })
 
