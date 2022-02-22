@@ -15,7 +15,6 @@ if(leadsFromLocalStorage){
     render(myLeads)
 }
 
-let tabs = []
 
 function render(leads) {
     let listItems = ""
